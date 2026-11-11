@@ -1,0 +1,7 @@
+briefcase==0.4.7
+toga-winforms==0.5.7
+toga-dummy==0.5.7
+pytest==9.2.0
+pytest-asyncio==1.4.1.post1
+pypdf==7.0.1
+Pillow==13.0.0

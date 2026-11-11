@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "geradororcamento"
+version = "1.3.0"
+description = "Orçamentos offline para pequenos serviços de manutenção"
+requires-python = ">=3.12"
+
+[tool.briefcase]
+project_name = "gerador-orcamento"
+bundle = "br.com.davigusman"
+version = "1.3.0"
+url = "https://example.com/geradororcamento"
+license = "MIT"
+license-files = ["LICENSE"]
+author = "Davi Gusman Rodrigues"
+author_email = ""
+
+[tool.briefcase.app.geradororcamento]
+formal_name = "Gerador de orçamento"
+description = "Orçamentos offline para prestadores de manutenção residencial"
+long_description = "Crie, organize e exporte orçamentos de serviços sem depender de internet."
+sources = ["src/geradororcamento"]
+requires = []
+icon = "resources/icon"
+
+[tool.briefcase.app.geradororcamento.windows]
+requires = ["toga-winforms==0.5.7"]
+
+[tool.briefcase.app.geradororcamento.android]
+requires = ["toga-android==0.5.7"]
+min_os_version = "24"
+android_abis = ["arm64-v8a", "x86_64"]
+build_gradle_dependencies = ["androidx.appcompat:appcompat:1.0.2", "androidx.constraintlayout:constraintlayout:1.1.3", "androidx.swiperefreshlayout:swiperefreshlayout:1.3.0"]
+primary_color = "#163B42"
+primary_color_dark = "#102D33"
+accent_color = "#087F73"
+splash_background_color = "#F3F6F5"
+permission."android.permission.INTERNET" = false
+permission."android.permission.ACCESS_NETWORK_STATE" = false
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+asyncio_default_fixture_loop_scope = "function"
